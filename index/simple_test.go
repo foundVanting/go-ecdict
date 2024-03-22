@@ -2,6 +2,7 @@ package index
 
 import (
 	"bytes"
+	"fmt"
 	"os"
 	"reflect"
 	"testing"
@@ -56,7 +57,7 @@ func assertMatchKey(t *testing.T, is Simple, key string) {
 func getDictFilePath() string {
 	dict := os.Getenv("ECDICT")
 	if len(dict) == 0 {
-		dict = os.ExpandEnv("$HOME/Development/Other/ECDICT/ecdict.csv")
+		dict = os.ExpandEnv("$HOME/Downloads/ecdict.csv")
 	}
 	return dict
 }
@@ -179,4 +180,20 @@ func BenchmarkSimple_Like(b *testing.B) {
 		k := keys[i%len(keys)][:3]
 		is.Like(k)
 	}
+}
+
+func TestName(t *testing.T) {
+
+	f, err := os.Open(getDictFilePath())
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	is, err := BuildSimpleIndex(f)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	match, err := is.Match("（be） strict with…")
+	fmt.Println(match, err)
 }

@@ -86,7 +86,7 @@ func (s Simple) Match(k string) (*Item, error) {
 		return nil, ErrNotInitialized
 	}
 
-	return binSearch(s, 0, len(s), k)
+	return binSearch(s, 0, len(s)-1, k)
 }
 
 func binSearch(s []*Item, si, ei int, k string) (*Item, error) {
@@ -95,10 +95,6 @@ func binSearch(s []*Item, si, ei int, k string) (*Item, error) {
 	}
 
 	i := (si + ei) / 2
-	if i >= len(s) {
-		return nil, ErrNil
-	}
-
 	switch strings.Compare(s[i].Key, k) {
 	case 0:
 		return s[i], nil
