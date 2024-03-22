@@ -11,7 +11,7 @@ go-ecdict
 ## 使用方式
 
 ``` go
-import "github.com/zgs225/go-ecdict/dict"
+import "github.com/foundVanting/go-ecdict/dict"
 
 var dictFile string // 从 ECDICT 下载 ecdict.csv 文件的路径
 dict, err := dict.NewSimpleDict(dictFile)

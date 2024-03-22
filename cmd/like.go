@@ -24,8 +24,8 @@ package cmd
 import (
 	"log"
 
+	"github.com/foundVanting/go-ecdict/dict"
 	"github.com/spf13/cobra"
-	"github.com/zgs225/go-ecdict/dict"
 )
 
 // likeCmd represents the like command

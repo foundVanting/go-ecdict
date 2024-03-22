@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/zgs225/go-ecdict/index"
+	"github.com/foundVanting/go-ecdict/index"
 )
 
 var (

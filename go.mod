@@ -1,4 +1,4 @@
-module github.com/zgs225/go-ecdict
+module github.com/foundVanting/go-ecdict
 
 go 1.14
 

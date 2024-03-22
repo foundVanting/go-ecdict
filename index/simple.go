@@ -95,6 +95,9 @@ func binSearch(s []*Item, si, ei int, k string) (*Item, error) {
 	}
 
 	i := (si + ei) / 2
+	if i >= len(s) {
+		return nil, ErrNil
+	}
 
 	switch strings.Compare(s[i].Key, k) {
 	case 0:
